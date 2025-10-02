@@ -1,11 +1,11 @@
 class Pokesay < Formula
-  depends_on arch: :arm64
-
   desc "Print pokemon in the CLI! An adaptation of the classic 'cowsay'"
   homepage "https://github.com/tmck-code/pokesay"
   url "https://github.com/tmck-code/pokesay/releases/download/v0.18.0/pokesay-darwin-arm64"
   sha256 "a9bb20705365ddc02ea9d7e5bfc5e8e7123f8e6548f3dd4849fc9e6b7f4242a8"
   license "BSD-3-Clause"
+
+  depends_on arch: :arm64
 
   def install
     bin.install "pokesay-darwin-arm64" => "pokesay"
