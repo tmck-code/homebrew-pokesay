@@ -32,6 +32,6 @@ class Pokesay < Formula
   end
 
   test do
-    assert_equal test_fixtures("test.txt"), shell_output("echo w | #{bin}/pokesay -ubjICF -w20 -i 0580.4582")
+    assert_equal test_fixtures("test.txt").read, shell_output("echo w | #{bin}/pokesay -ubjICF -w20 -i 0580.4582")
   end
 end
