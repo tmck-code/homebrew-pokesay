@@ -2,26 +2,10 @@
 
 _The home for all the taps made by **[tmck-code](https://github.com/tmck-code)**_
 
-<table>
-<tr>
-  <td>Name</td>
-  <td>Installation</td>
-  <td>Repository</td>
-  <td>Description</td>
-</tr>
-<tr>
-  <td>pokesay</td>
-  <td>
+| Name | Installation | Repository | Description |
+|------|--------------|------------|-------------|
+| pokesay | <pre>brew install tmck-code/taps/pokesay</pre> | [tmck-code/pokesay](https://github.com/tmck-code/pokesay) | Print pokemon in the CLI!<br/>An adaptation of the classic 'cowsay' |
 
-```shell
-brew install tmck-code/taps/pokesay
-```
-
-  </td>
-  <td><a href="https://github.com/tmck-code/pokesay">tmck-code/pokesay</a></td>
-  <td>Print pokemon in the CLI! An adaptation of the classic 'cowsay'</td>
-</tr>
-</table>
 
 ---
 
