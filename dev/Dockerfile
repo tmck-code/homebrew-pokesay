@@ -1,0 +1,30 @@
+FROM docker.io/library/debian:stable-slim
+
+RUN apt update \
+    && apt upgrade -y \
+    && apt install -y \
+      curl git ruby ruby-dev build-essential openssh-client procps \
+    && mkdir -p -m 0700 ~/.ssh \
+    && ssh-keyscan github.com >> ~/.ssh/known_hosts
+
+RUN useradd linuxbrew -m
+WORKDIR /home/linuxbrew
+USER linuxbrew
+
+ARG GITHUB_USER_NAME
+ARG GITHUB_USER_EMAIL
+
+RUN /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+RUN git config --global user.name "$GITHUB_USER_NAME" \
+    && git config --global user.email "$GITHUB_USER_EMAIL"
+
+RUN eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)" \
+    && brew tap-new tmck-code/taps
+
+WORKDIR /home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/tmck-code/homebrew-taps
+RUN git clone --depth 1 \
+        https://github.com/homebrew/homebrew-core.git \
+        /home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew/homebrew-core \
+    && git remote add origin git@github.com:tmck-code/homebrew-taps.git \
+    && git remote set-url origin git@github.com:tmck-code/homebrew-taps.git
+

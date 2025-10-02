@@ -22,3 +22,9 @@ brew "<formula>"
 ```
 
 _For more information on using Homebrew, `brew help`, `man brew` or check [Homebrew's documentation](https://docs.brew.sh)._
+
+---
+
+### Development
+
+[See here](./dev.md) for development docs
