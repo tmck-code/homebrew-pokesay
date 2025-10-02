@@ -1,38 +1,42 @@
-# Documentation: https://docs.brew.sh/Formula-Cookbook
-#                https://rubydoc.brew.sh/Formula
-# PLEASE REMOVE ALL GENERATED COMMENTS BEFORE SUBMITTING YOUR PULL REQUEST!
 class Pokesay < Formula
+  depends_on arch: :arm64
+
   desc "Print pokemon in the CLI! An adaptation of the classic 'cowsay'"
   homepage "https://github.com/tmck-code/pokesay"
   url "https://github.com/tmck-code/pokesay/releases/download/v0.18.0/pokesay-darwin-arm64"
   sha256 "a9bb20705365ddc02ea9d7e5bfc5e8e7123f8e6548f3dd4849fc9e6b7f4242a8"
   license "BSD-3-Clause"
 
-  # depends_on "cmake" => :build
-
-  # Additional dependency
-  # resource "" do
-  #   url ""
-  #   sha256 ""
-  # end
-
   def install
-    # Remove unrecognized options if they cause configure to fail
-    # https://rubydoc.brew.sh/Formula.html#std_configure_args-instance_method
-    system "./configure", "--disable-silent-rules", *std_configure_args
-    # system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    bin.install "pokesay-darwin-arm64" => "pokesay"
   end
 
   test do
-    # `test do` will create, run in and delete a temporary directory.
-    #
-    # This test will fail and we won't accept that! For Homebrew/homebrew-core
-    # this will need to be a test that verifies the functionality of the
-    # software. Run the test with `brew test pokesay`. Options passed
-    # to `brew install` such as `--HEAD` also need to be provided to `brew test`.
-    #
-    # The installed folder is not in the path, so use the entire path to any
-    # executables being tested: `system bin/"program", "do", "something"`.
-    system "false"
+    expected_output = <<~EOS
+      ╭──────────────────────╮
+      │ w[0m                    │
+      ╰──────╲───────────────╯
+              ╲
+              ╲
+                ╲
+                ╲
+                      [38;5;16m[49m▄▄[38;5;245m[48;5;16m▄[38;5;231m[48;5;16m▄[38;5;245m[48;5;16m▄[38;5;16m[49m▄▄[49m         [0m
+          [38;5;16m[49m▄[38;5;172m[48;5;16m▄[38;5;214m[48;5;16m▄[38;5;16m[49m▄     ▄[38;5;167m[48;5;16m▄[38;5;131m[48;5;167m  ▄[38;5;231m[48;5;245m▄[38;5;151m[48;5;231m ▄[38;5;77m[48;5;231m▄[38;5;77m[48;5;16m▄[38;5;16m[49m▄       [0m
+          [38;5;172m[49m[38;5;172m[48;5;16m [38;5;172m[48;5;172m   [38;5;172m[48;5;214m▄[38;5;214m[48;5;16m▄[38;5;16m[49m▄[38;5;131m[49m   [38;5;131m[48;5;16m [38;5;131m[48;5;167m▄[38;5;77m[48;5;167m [38;5;77m[48;5;131m [38;5;77m[48;5;231m  ▄  ▄[38;5;16m[48;5;16m [38;5;16m[49m       [0m
+          [38;5;16m[49m▀[38;5;16m[48;5;172m▄[38;5;238m[48;5;172m   ▄[38;5;238m[48;5;16m▄▄▄[38;5;214m[48;5;16m▄[38;5;238m[48;5;131m▄[38;5;231m[48;5;131m  [38;5;231m[48;5;231m  [38;5;231m[48;5;151m▄[38;5;231m[48;5;77m▄[38;5;131m[48;5;77m▄[38;5;131m[48;5;151m▄[38;5;167m[48;5;238m▄[38;5;167m[48;5;16m▄[38;5;16m[49m▄[38;5;172m[49m     [0m
+            [38;5;16m[49m▀[38;5;16m[48;5;172m▄[38;5;172m[48;5;172m  [38;5;172m[48;5;238m▄[38;5;16m[48;5;238m▄[38;5;16m[48;5;214m▄[38;5;131m[48;5;214m▄[38;5;214m[48;5;214m [38;5;214m[48;5;238m▄▄[38;5;172m[48;5;238m▄[38;5;238m[48;5;167m▄▄▄[38;5;16m[48;5;167m   ▄▄[38;5;16m[49m▀    [0m
+            [38;5;16m[49m[38;5;16m[48;5;16m [38;5;16m[48;5;172m  ▄[38;5;16m[49m▀▄[38;5;214m[48;5;16m▄[38;5;238m[48;5;214m   [38;5;238m[48;5;16m▄[38;5;16m[48;5;231m▄[38;5;214m[48;5;172m▄[38;5;214m[48;5;214m [38;5;214m[48;5;172m▄[38;5;172m[48;5;238m▄▄[38;5;16m[48;5;16m [38;5;16m[49m       [0m
+              [38;5;16m[49m▀[38;5;16m[48;5;172m▄[38;5;131m[48;5;172m▄[38;5;238m[48;5;16m▄[38;5;130m[48;5;214m▄[38;5;172m[48;5;214m   [38;5;172m[48;5;203m  [38;5;172m[48;5;214m   ▄[38;5;238m[48;5;214m▄[38;5;172m[48;5;16m▄[38;5;16m[49m▄       [0m
+              [38;5;16m[49m▀[38;5;16m[48;5;131m▄[38;5;130m[48;5;238m [38;5;130m[48;5;214m▄[38;5;238m[48;5;214m  ▄[38;5;214m[48;5;214m [38;5;214m[48;5;238m▄[38;5;238m[48;5;214m▄[38;5;172m[48;5;214m▄[38;5;16m[48;5;172m ▄[38;5;16m[49m▀▀▀        [0m
+                [38;5;238m[49m[38;5;238m[48;5;16m [38;5;238m[48;5;214m▄[38;5;214m[48;5;214m   [38;5;214m[48;5;238m▄▄[38;5;16m[48;5;172m  ▄[38;5;16m[49m▀           [0m
+                [38;5;16m[49m▀[38;5;16m[48;5;214m▄ ▄▄[38;5;16m[49m▀▀▀[38;5;238m[49m             [0m
+                  [39m[49m[38;5;16m[49m▀                  [0m
+                                      [0m
+      ╭───────────────────────────────────────────────╮
+      │ → Pikachu │ ピカチュウ (pikachuu) │ 0580.4582 │
+      ╰───────────────────────────────────────────────╯
+
+    EOS
+    assert_equal expected_output.strip, shell_output("echo w | #{bin}/pokesay -ubjICF -w20 -i 0580.4582").strip
   end
 end
