@@ -29,6 +29,9 @@ class Pokesay < Formula
     end
 
     bin.install binfile => "pokesay"
+    bash_completion.install "pokesay-completion.bash" => "pokesay"
+    fish_completion.install "pokesay-completion.fish" => "pokesay.fish"
+    zsh_completion.install "pokesay-completion.zsh" => "_pokesay"
   end
 
   test do
