@@ -18,8 +18,8 @@ class Pokesay < Formula
     bash_completion.install "pokesay-completion.bash" => "pokesay"
     fish_completion.install "pokesay-completion.fish" => "pokesay.fish"
     zsh_completion.install "pokesay-completion.zsh" => "_pokesay"
-    pkgshare.install "pokesay-names.txt"
-    pkgshare.install "pokesay-ids.txt"
+    opt_pkgshare.install "pokesay-names.txt"
+    opt_pkgshare.install "pokesay-ids.txt"
 
     man1.install "pokesay.1"
   end
