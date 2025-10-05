@@ -4,12 +4,13 @@ class Pokesay < Formula
   license "BSD-3-Clause"
   url "https://github.com/tmck-code/pokesay/releases/download/v0.18.2/pokesay-0.18.2.tar.gz"
   sha256 "d800b298ef09e6c0a9871eaa1d989a290a81088f383c3be53020cf52632534eb"
+  version "0.18.2"
 
   def install
-    if OS.mac? && Hardware::CPU.intel?      then binfile = "pokesay-darwin-amd64"
-    elsif OS.mac? && Hardware::CPU.arm?     then binfile = "pokesay-darwin-arm64"
-    elsif OS.linux? && Hardware::CPU.intel? then binfile = "pokesay-linux-amd64"
-    elsif OS.windows?                       then binfile = "pokesay-windows-amd64.exe"
+    if OS.mac? && Hardware::CPU.intel?      then binfile = "pokesay-0.18.2-darwin-amd64"
+    elsif OS.mac? && Hardware::CPU.arm?     then binfile = "pokesay-0.18.2-darwin-arm64"
+    elsif OS.linux? && Hardware::CPU.intel? then binfile = "pokesay-0.18.2-linux-amd64"
+    elsif OS.windows?                       then binfile = "pokesay-0.18.2-windows-amd64.exe"
     end
 
     bin.install binfile => "pokesay"
