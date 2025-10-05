@@ -14,16 +14,14 @@ class Pokesay < Formula
     end
 
     bin.install binfile => "pokesay"
+
     bash_completion.install "pokesay-completion.bash" => "pokesay"
     fish_completion.install "pokesay-completion.fish" => "pokesay.fish"
     zsh_completion.install "pokesay-completion.zsh" => "_pokesay"
-    prefix.install "usr/share/pokesay/pokesay-names.txt"
-    prefix.install "usr/share/pokesay/pokesay-ids.txt"
-    man1.install "pokesay.1"
+    pkgshare.install "pokesay-names.txt"
+    pkgshare.install "pokesay-ids.txt"
 
-    # Create symlinks in Homebrew's share directory
-    link_overwrite "share/pokesay/pokesay-names.txt"
-    link_overwrite "share/pokesay/pokesay-ids.txt"
+    man1.install "pokesay.1"
   end
 
   test do
