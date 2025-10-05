@@ -2,24 +2,8 @@ class Pokesay < Formula
   desc "Print pokemon in the CLI! An adaptation of the classic 'cowsay'"
   homepage "https://github.com/tmck-code/pokesay"
   license "BSD-3-Clause"
-
-  if OS.mac?
-    if Hardware::CPU.intel?
-      url "https://github.com/tmck-code/pokesay/releases/download/v0.18.0/pokesay-darwin-amd64"
-      sha256 "7686363fbf8b71b7fbf1adce8769c33bbe611627cfbe82417ce17f1e68d5bc6b"
-    elsif Hardware::CPU.arm?
-      url "https://github.com/tmck-code/pokesay/releases/download/v0.18.0/pokesay-darwin-arm64"
-      sha256 "a9bb20705365ddc02ea9d7e5bfc5e8e7123f8e6548f3dd4849fc9e6b7f4242a8"
-    end
-  elsif OS.linux?
-    if Hardware::CPU.intel?
-      url "https://github.com/tmck-code/pokesay/releases/download/v0.18.0/pokesay-linux-amd64"
-      sha256 "792acbf1e63f147674b0303a2d007d7dcfa9210210f5c0a52cf12d699d0eb2a7"
-    end
-  elsif OS.windows?
-    url "https://github.com/tmck-code/pokesay/releases/download/v0.18.0/pokesay-windows-amd64.exe"
-    sha256 "d1ef69467a0ede044c14a28e30e8e859f9cd81f104faa00de599fc6cc4430d50"
-  end
+  url "https://github.com/tmck-code/pokesay/releases/download/v0.18.2/pokesay-0.18.2.tar.gz"
+  sha256 "d800b298ef09e6c0a9871eaa1d989a290a81088f383c3be53020cf52632534eb"
 
   def install
     if OS.mac? && Hardware::CPU.intel?      then binfile = "pokesay-darwin-amd64"
@@ -32,6 +16,13 @@ class Pokesay < Formula
     bash_completion.install "pokesay-completion.bash" => "pokesay"
     fish_completion.install "pokesay-completion.fish" => "pokesay.fish"
     zsh_completion.install "pokesay-completion.zsh" => "_pokesay"
+    prefix.install "usr/share/pokesay/pokesay-names.txt"
+    prefix.install "usr/share/pokesay/pokesay-ids.txt"
+    man1.install "pokesay.1"
+
+    # Create symlinks in Homebrew's share directory
+    link_overwrite "share/pokesay/pokesay-names.txt"
+    link_overwrite "share/pokesay/pokesay-ids.txt"
   end
 
   test do
