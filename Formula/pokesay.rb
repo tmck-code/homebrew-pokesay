@@ -3,7 +3,7 @@ class Pokesay < Formula
   homepage "https://github.com/tmck-code/pokesay"
   license "BSD-3-Clause"
   url "https://github.com/tmck-code/pokesay/releases/download/v0.18.2/pokesay-0.18.2.tar.gz"
-  sha256 "72fcbf7fd0f6f070d359043bf5a27e2e42eaae54e0092fc0f0671a8e0d6a8fcb"
+  sha256 "fa8ce4ce21d0cf4a2ce8a3e664088c222feefed6fab39738f78b6845f996d123"
   version "0.18.2"
 
   def install
