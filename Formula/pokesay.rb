@@ -4,7 +4,6 @@ class Pokesay < Formula
   license "BSD-3-Clause"
   url "https://github.com/tmck-code/pokesay/releases/download/v0.18.2/pokesay-0.18.2.tar.gz"
   sha256 "fa8ce4ce21d0cf4a2ce8a3e664088c222feefed6fab39738f78b6845f996d123"
-  version "0.18.2"
 
   def install
     if OS.mac? && Hardware::CPU.intel?      then binfile = "pokesay-0.18.2-darwin-amd64"
