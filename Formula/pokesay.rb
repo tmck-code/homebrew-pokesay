@@ -10,16 +10,16 @@ class Pokesay < Formula
     if OS.mac? && Hardware::CPU.intel?      then binfile = "pokesay-0.18.2-darwin-amd64"
     elsif OS.mac? && Hardware::CPU.arm?     then binfile = "pokesay-0.18.2-darwin-arm64"
     elsif OS.linux? && Hardware::CPU.intel? then binfile = "pokesay-0.18.2-linux-amd64"
-    elsif OS.windows?                       then binfile = "pokesay-0.18.2-windows-amd64.exe"
     end
 
     bin.install binfile => "pokesay"
 
-    bash_completion.install "pokesay-completion.bash" => "pokesay"
-    fish_completion.install "pokesay-completion.fish" => "pokesay.fish"
-    zsh_completion.install "pokesay-completion.zsh" => "_pokesay"
-    share.install "pokesay-names.txt"
-    share.install "pokesay-ids.txt"
+    # TODO: figure out this nightmare
+    # bash_completion.install "pokesay-completion.bash" => "pokesay"
+    # fish_completion.install "pokesay-completion.fish" => "pokesay.fish"
+    # zsh_completion.install "pokesay-completion.zsh" => "_pokesay"
+    # share.install "pokesay-names.txt"
+    # share.install "pokesay-ids.txt"
 
     man1.install "pokesay.1"
   end
